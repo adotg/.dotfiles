@@ -1,0 +1,21 @@
+# Clear shortcut
+alias cl="clear"
+
+# History shortcut
+alias h="history"
+
+# List in long format, include dotfiles
+alias l="ls -la"
+
+# List in long format, only directories
+alias ld="ls -ld */"
+
+alias ..="cd .."
+
+alias ...="cd ../.."
+
+alias ....="cd ../../.."
+
+# Recursively remove .DS_Store files
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
+
