@@ -66,18 +66,6 @@ function install_dotfiles_for_tmux() {
 
 function install_dotfiles_for_vim() {
     local stat=1
-    echo "============================"
-    echo "Installing dotfiles for nvim"
-    echo "============================"
-
-    if [[ -f ~/.config/nvim/init.vim ]]; then
-        stat=$(( stat*2 ))
-    fi
-
-    if [[ -f ~/.config/nvim/init.vim.local]]; then
-        stat=$(( stat*3 ))
-    fi
-
     if [[ stat -eq 6 ]]; then
         echo "Both vimrc and vimrc_local found; Deleting vimrc; vimrc_local untouched"
         rm ~/.vimrc
