@@ -142,6 +142,9 @@ let g:ctrlp_custom_ignore = {
 " control. It also supports works with .svn, .hg, .bzr.
 let g:ctrlp_working_path_mode = 'r'
 
+" On sae use rust format
+let g:rustfmt_autosave = 1
+
 " Use a leader instead of the actual named binding
 nmap <leader>p :CtrlP<cr>
 

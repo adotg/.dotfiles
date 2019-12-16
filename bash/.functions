@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # Start a simple python server by calling server 8181 (port)
-server () {
+server() {
   python3 -m http.server $1
+}
+
+gitcp() {
+  git commit -m "$1" && git push
 }
 

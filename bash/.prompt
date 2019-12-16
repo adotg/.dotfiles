@@ -2,7 +2,12 @@
 
 # Show git branch in PS1 (prompt)
 function parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/   \1/'
+}
+
+function interface() {
+  i=`tty`
+  echo "   $i" 
 }
 
 function prompt {
@@ -24,7 +29,7 @@ function prompt {
   local WHITEBOLD="\[\033[1;37m\]"
   local RESETCOLOR="\[\e[00m\]"
 
-  export PS1="\n$REDBOLD ❤ $GREENBOLD \w $RESETCOLOR$GREEN\$(parse_git_branch)\n $CYAN[\#] → $RESETCOLOR"
+  export PS1="\n$REDBOLD ❤ $GREENBOLD \w $RESETCOLOR\n$YELLOW\$(interface) \n$GREEN\$(parse_git_branch)\n$CYAN ☁ \n$CYAN[\#] → $RESETCOLOR"
   export PS2=" | → $RESETCOLOR"
 }
 

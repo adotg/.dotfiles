@@ -67,29 +67,14 @@ function install_dotfiles_for_tmux() {
 function install_dotfiles_for_vim() {
     local stat=1
     echo "============================"
-    echo "Installing dotfiles for tmux"
+    echo "Installing dotfiles for nvim"
     echo "============================"
 
-    # If vundle is not installed, install vundle 
-    if [[ ! -d ~/.vim/bundle/Vundle.vim ]]; then
-        echo "Installing Vundle"
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    fi
-
-    if [[ ! -d ~/.vim/autoload ]]; then
-        mkdir -p ~/.vim/autoload
-    fi
-
-    if [[ ! -f ~/.vim/autoload/pathogen.vim ]]; then
-        echo "Installing pathogen"
-        curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-    fi
-
-    if [[ -f ~/.vimrc ]]; then
+    if [[ -f ~/.config/nvim/init.vim ]]; then
         stat=$(( stat*2 ))
     fi
 
-    if [[ -f ~/.vimrc_local ]]; then
+    if [[ -f ~/.config/nvim/init.vim.local]]; then
         stat=$(( stat*3 ))
     fi
 
@@ -105,6 +90,12 @@ function install_dotfiles_for_vim() {
 
     echo "Creating symbolic link to home"
     ln -sv ~/.dotfiles/vim/.vimrc ~
+
+    echo "Unwinding neovim setup files"
+    cp ~/.dotfiles/vim/nvim.zip ~/.config/
+    cd ~/.config
+    unzip nvim.zip
+    rm nvim.zip
 
     echo ""
     echo "COMPLETED"

@@ -16,6 +16,14 @@ alias ...="cd ../.."
 
 alias ....="cd ../../.."
 
+alias tmux="tmux -u"
+
+alias python="/usr/local/bin/python3"
+
+# Open neovim when macvim is called by some application
+alias mvim="nvim"
+alias vim="nvim"
+
 # Recursively remove .DS_Store files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 

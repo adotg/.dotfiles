@@ -6,7 +6,7 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-export PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:${PATH}"
+export PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:${GOPATH}/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Users/akashgoswami/Tools/apache-maven-3.6.1/bin:$HOME/.cargo/bin:${PATH}"
 
 . ~/.dotfiles/bash/.env
 
@@ -16,8 +16,9 @@ export PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:${PATH}"
 
 . ~/.dotfiles/bash/.functions
 
-# If local bash profile is present then, take that as well
-if [ -f ~/.local_profile.bash ]; then
-    . ~/.local_profile.bash
-fi
+export GOPATH=$HOME/GoProj/go
 
+# If local bashrc is present then, take that as well
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
