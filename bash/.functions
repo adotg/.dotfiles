@@ -2,10 +2,19 @@
 
 # Start a simple python server by calling server 8181 (port)
 server() {
-  python3 -m http.server $1
+  python -m SimpleHTTPServer $1
 }
 
 gitcp() {
   git commit -m "$1" && git push
 }
 
+fapp() {
+  open "$(ls -d -1 "/Applications/$(ls /Applications/ | fzf)")"
+}
+
+agm() {
+  command ag \
+    -p "$(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git rev-parse --show-toplevel)/.gitignore")" \
+    "$@" -g .
+}
