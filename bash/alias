@@ -1,0 +1,33 @@
+# Clear shortcut
+alias cl="clear"
+
+# History shortcut
+alias h="history | fzf --tac"
+
+# List in long format, include dotfiles
+alias la="ls -la"
+
+# List in long format, only directories
+alias ld="ls -ld */"
+
+alias ..="cd .."
+
+alias ...="cd ../.."
+
+alias ....="cd ../../.."
+
+alias tmux="tmux -u"
+
+alias tcopy="tmux save-buffer - | pbcopy"
+
+# TS settings needs this
+alias python="/usr/bin/python"
+alias python2="/usr/bin/python"
+
+# Open neovim when macvim is called by some application
+alias mvim="nvim"
+alias vim="nvim"
+
+# Recursively remove .DS_Store files
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
+

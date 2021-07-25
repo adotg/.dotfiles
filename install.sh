@@ -59,31 +59,17 @@ function install_dotfiles_for_tmux() {
     echo "Linking tmux conf"
     ln -sv ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
     ln -sv ~/.dotfiles/tmux/tmux.remote.conf ~/.tmux/tmux.remote.conf
+    ln -sv ~/.dotfiles/tmux/.tmux-gitbar.conf ~/.tmux-gitbar.conf
 
     echo ""
     echo "COMPLETED"
 }
 
+# For neovim
 function install_dotfiles_for_vim() {
-    local stat=1
-    if [[ stat -eq 6 ]]; then
-        echo "Both vimrc and vimrc_local found; Deleting vimrc; vimrc_local untouched"
-        rm ~/.vimrc
-    elif [[ stat -eq 2 ]]; then
-        echo "Found vimrc; Renaming it for bootstrapping"
-        mv ~/.vimrc ~/.vimrc_local
-    elif [[ stat -eq 3 ]]; then
-        echo "vimrc_local found; Will be sourcing it"
-    fi
-
-    echo "Creating symbolic link to home"
-    ln -sv ~/.dotfiles/vim/.vimrc ~
-
+    mkdir -p ~/.config/nvim
     echo "Unwinding neovim setup files"
-    cp ~/.dotfiles/vim/nvim.zip ~/.config/
-    cd ~/.config
-    unzip nvim.zip
-    rm nvim.zip
+    cp ~/.dotfiles/vim/init.vim ~/.config/nvim/init.vim
 
     echo ""
     echo "COMPLETED"

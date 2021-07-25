@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Start a simple python server by calling server 8181 (port)
+server() {
+  python -m SimpleHTTPServer $1
+}
+
+gitcp() {
+  git commit -m "$1" && git push
+}
+
+agm() {
+  command ag \
+    -p "$(git rev-parse --is-inside-work-tree &>/dev/null && echo "$(git rev-parse --show-toplevel)/.gitignore")" \
+    "$@" -g .
+}
+
+t() {
+  tmux attach -t "$(tmux ls -F "#{session_name}" | fzf)"
+}
+
+x() {
+  tee ~/tmp/capture.out
+  nvim ~/tmp/capture.out
+}
+
+xx() {
+  chmod +x ~/tmp/capture.out
+  bash ~/tmp/capture.out
+  :> ~/tmp/capture.out
+}

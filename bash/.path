@@ -1,9 +1,0 @@
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-13.0.1.jdk/Contents/Home/"
-
-export
-PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:${GOPATH}/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Users/akashgoswami/Tools/apache-maven-3.6.1/bin:$HOME/.cargo/bin:${PATH}:/Users/akash.goswami/Lib/depot_tools:/Users/akash.goswami/Lib/apache-maven-3.6.3/bin"
-
-export GOPATH=$HOME/GoProj/go
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
